@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Python & POO - Tema Roxo</title>
+  <style>
+    :root {
+      --roxo-principal: #a259ff;
+      --roxo-escuro: #7a34cc;
+      --preto-fundo: #121212;
+      --cinza-texto: #cccccc;
+      --verde-codigo: #00ffae;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--preto-fundo);
+      color: var(--cinza-texto);
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--roxo-escuro), var(--roxo-principal));
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+      box-shadow: 0 0 10px var(--roxo-principal);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 30px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 25px #a259ff33;
+    }
+
+    .show-code-btn {
+      background: var(--roxo-principal);
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 12px 20px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .show-code-btn:hover {
+      background: var(--roxo-escuro);
+      transform: scale(1.05);
+    }
+
+    pre {
+      background-color: #000000;
+      color: var(--verde-codigo);
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      border: 1px solid var(--roxo-principal);
+    }
+
+    h2 {
+      color: var(--roxo-principal);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #1a1a1a;
+      color: #999;
+      margin-top: 30px;
+      font-size: 0.9em;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    .dark-mode {
+      background-color: white;
+      color: black;
+    }
+
+    .dark-mode main {
+      background-color: #f5f5f5;
+    }
+
+    .dark-mode header {
+      background: linear-gradient(90deg, #e91e63, #ff4081);
+    }
+
+    .dark-mode .show-code-btn {
+      background-color: #e91e63;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💻 Python & POO com Estilo Roxo</h1>
+    <button onclick="toggleDarkMode()" class="show-code-btn">🌗 Alternar Tema</button>
+  </header>
+
+  <main>
+    <section>
+      <h2>🐍 O que é Python?</h2>
+      <p>Python é uma linguagem poderosa, versátil e fácil de aprender, muito usada em diversas áreas como web, automação, IA e ciência de dados.</p>
+      <ul>
+        <li>✅ Sintaxe limpa e objetiva</li>
+        <li>✅ Muita documentação e comunidade</li>
+        <li>✅ Frameworks incríveis (Flask, Django...)</li>
+        <li>✅ Ideal para iniciantes e profissionais</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🔧 O que é POO?</h2>
+      <p>POO (Programação Orientada a Objetos) permite modelar o mundo real usando código, organizando programas em classes e objetos.</p>
+      <ul>
+        <li>🧱 Classes e Objetos</li>
+        <li>🔁 Herança</li>
+        <li>🔐 Encapsulamento</li>
+        <li>🌀 Polimorfismo</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📘 Exemplo: Fatorial</h2>
+      <button class="show-code-btn" onclick="toggleCode('fatorial')">👁️ Ver Código</button>
+      <pre id="fatorial" style="display: none;">
+def fatorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * fatorial(n - 1)
+
+print(fatorial(5))  # 120
+      </pre>
+    </section>
+
+    <section>
+      <h2>📗 Exemplo: Número Primo</h2>
+      <button class="show-code-btn" onclick="toggleCode('primo')">👁️ Ver Código</button>
+      <pre id="primo" style="display: none;">
+def eh_primo(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5)+1):
+        if n % i == 0:
+            return False
+    return True
+
+print(eh_primo(7))  # True
+      </pre>
+    </section>
+
+    <section>
+      <h2>📙 Exemplo: POO</h2>
+      <button class="show-code-btn" onclick="toggleCode('poo')">👁️ Ver Código</button>
+      <pre id="poo" style="display: none;">
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def falar(self):
+        print(f"Olá! Meu nome é {self.nome} e tenho {self.idade} anos.")
+
+p1 = Pessoa("João", 25)
+p1.falar()
+      </pre>
+    </section>
+  </main>
+
+  <footer>
+    Desenvolvido por EnricoModz
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function toggleCode(id) {
+      const block = document.getElementById(id);
+      block.style.display = block.style.display === "none" ? "block" : "none";
+    }
+  </script>
+</body>
+</html>
